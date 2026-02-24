@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORYX Cafe | اوريكس كافيه</title>
+  <meta name="description" content="ORYX Cafe — Premium coffee, desserts & bubble tea in Umm Al Quwain, UAE. اوريكس كافيه — قهوة فاخرة، حلويات وبابل تي في أم القيوين" />
+  <link rel="icon" href="assets/Oryx-cafe-logo.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════ PRELOADER ═══════════ -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <img src="assets/Oryx-cafe-logo.jpg" alt="ORYX Cafe Logo" class="preloader-logo" />
+      <div class="preloader-bar"><div class="preloader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="assets/Oryx-cafe-logo.jpg" alt="ORYX Cafe" />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="#about" data-en="About" data-ar="عن الكافيه">About</a></li>
+        <li><a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a></li>
+        <li><a href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+        <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <button id="langToggle" class="lang-toggle" aria-label="Toggle Arabic / English">
+          <span class="lang-en">عربي</span>
+          <span class="lang-ar" style="display:none">EN</span>
+        </button>
+        <button class="nav-burger" id="navBurger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ MOBILE MENU OVERLAY ═══════════ -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-menu-links">
+      <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
+      <li><a href="#about" data-en="About" data-ar="عن الكافيه">About</a></li>
+      <li><a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a></li>
+      <li><a href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+      <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════ HERO SECTION ═══════════ -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-content">
+      <div class="hero-badge" data-en="☕ Premium Café Experience" data-ar="☕ تجربة كافيه فاخرة">☕ Premium Café Experience</div>
+      <h1 class="hero-title">
+        <span class="hero-title-line" data-en="ORYX" data-ar="اوريكس">ORYX</span>
+        <span class="hero-title-line accent" data-en="CAFE" data-ar="كافيه">CAFE</span>
+      </h1>
+      <p class="hero-subtitle" data-en="Value is more expensive than price 👌🏻" data-ar="القيمة أغلى من السعر 👌🏻">Value is more expensive than price 👌🏻</p>
+      <div class="hero-cta-group">
+        <a href="#menu" class="btn btn-primary" data-en="Explore Menu" data-ar="استكشف القائمة">Explore Menu</a>
+        <a href="#contact" class="btn btn-outline" data-en="Order Now" data-ar="اطلب الآن">Order Now</a>
+      </div>
+    </div>
+    <!-- scroll indicator is a direct child of .hero so it anchors to viewport bottom -->
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span data-en="Scroll" data-ar="مرّر">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════ MARQUEE ═══════════ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span>COFFEE ☕ DESSERTS 🍰 BUBBLE TEA 🧋 CROISSANTS 🥐 ACAI BOWLS 🫐 ICE CREAM 🍦 MATCHA 🍵 AFFOGATO ☕ COFFEE ☕ DESSERTS 🍰 BUBBLE TEA 🧋 CROISSANTS 🥐 ACAI BOWLS 🫐 ICE CREAM 🍦 MATCHA 🍵 AFFOGATO ☕</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ ABOUT SECTION ═══════════ -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-img-main reveal-left">
+            <img src="assets/oryx1.jpg" alt="ORYX Cafe" loading="lazy" />
+          </div>
+          <div class="about-img-secondary reveal-left" style="animation-delay:.2s">
+            <img src="assets/oryx2.jpg" alt="ORYX Cafe drinks" loading="lazy" />
+          </div>
+          <div class="about-img-float reveal-scale">
+            <img src="assets/Oryx-cafe-logo.jpg" alt="ORYX Logo" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="about-text reveal-right">
+          <span class="section-tag" data-en="About Us" data-ar="من نحن">About Us</span>
+          <h2 class="section-title" data-en="Crafted with Passion, Served with Pride" data-ar="صُنع بشغف، يُقدّم بفخر">Crafted with Passion, Served with Pride</h2>
+          <p class="section-desc" data-en="Nestled in Al Salamah, Umm Al Quwain, ORYX Cafe brings you a premium café experience with specialty coffee, artisanal desserts, refreshing bubble teas, and wholesome bites — all in a cosy, trendy atmosphere." data-ar="يقع اوريكس كافيه في منطقة السلامة بأم القيوين، ويقدّم لكم تجربة كافيه فاخرة تشمل القهوة المختصة والحلويات الراقية وبابل تي المنعش ووجبات خفيفة — في أجواء مريحة وعصرية.">Nestled in Al Salamah, Umm Al Quwain, ORYX Cafe brings you a premium café experience with specialty coffee, artisanal desserts, refreshing bubble teas, and wholesome bites — all in a cosy, trendy atmosphere.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="feature-icon"><i data-lucide="coffee"></i></div>
+              <div>
+                <h4 data-en="Specialty Coffee" data-ar="قهوة مختصة">Specialty Coffee</h4>
+                <p data-en="From espresso to Spanish latte" data-ar="من الإسبريسو إلى سبانش لاتيه">From espresso to Spanish latte</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i data-lucide="cake-slice"></i></div>
+              <div>
+                <h4 data-en="Artisan Desserts" data-ar="حلويات راقية">Artisan Desserts</h4>
+                <p data-en="Acai bowls, fondant & more" data-ar="أساي باول، فوندانت والمزيد">Acai bowls, fondant & more</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="feature-icon"><i data-lucide="cup-soda"></i></div>
+              <div>
+                <h4 data-en="Creative Drinks" data-ar="مشروبات مبتكرة">Creative Drinks</h4>
+                <p data-en="Bubble tea, smoothies & more" data-ar="بابل تي، سموذي والمزيد">Bubble tea, smoothies & more</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number" data-count="30">0</span><span class="stat-plus">+</span>
+              <span class="stat-label" data-en="Menu Items" data-ar="عنصر في القائمة">Menu Items</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="7">0</span>
+              <span class="stat-label" data-en="Days a Week" data-ar="أيام في الأسبوع">Days a Week</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-count="4">0</span>
+              <span class="stat-label" data-en="Delivery Platforms" data-ar="منصات توصيل">Delivery Platforms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HIGHLIGHTS CARDS ═══════════ -->
+  <section class="highlights section">
+    <div class="container">
+      <div class="highlights-grid">
+        <div class="highlight-card reveal-up" style="--delay:0">
+          <div class="highlight-icon"><i data-lucide="clock"></i></div>
+          <h3 data-en="Open Daily" data-ar="مفتوح يومياً">Open Daily</h3>
+          <p data-en="7:00 AM – 11:00 PM" data-ar="٧:٠٠ ص – ١١:٠٠ م">7:00 AM – 11:00 PM</p>
+          <span class="highlight-sub" data-en="Ramadan: 6 PM – 2 AM" data-ar="رمضان: ٦ م – ٢ ص">Ramadan: 6 PM – 2 AM</span>
+        </div>
+        <div class="highlight-card reveal-up" style="--delay:1">
+          <div class="highlight-icon"><i data-lucide="truck"></i></div>
+          <h3 data-en="Delivery" data-ar="توصيل">Delivery</h3>
+          <p data-en="Talabat · Beanz · Noon Food · Keeta" data-ar="طلبات · بينز · نون فود · كيتا">Talabat · Beanz · Noon Food · Keeta</p>
+        </div>
+        <div class="highlight-card reveal-up" style="--delay:2">
+          <div class="highlight-icon"><i data-lucide="map-pin"></i></div>
+          <h3 data-en="Location" data-ar="الموقع">Location</h3>
+          <p data-en="Al Salamah, Umm Al Quwain, UAE" data-ar="السلامة، أم القيوين، الإمارات">Al Salamah, Umm Al Quwain, UAE</p>
+        </div>
+        <div class="highlight-card reveal-up" style="--delay:3">
+          <div class="highlight-icon"><i data-lucide="parking-meter"></i></div>
+          <h3 data-en="Free Parking" data-ar="مواقف مجانية">Free Parking</h3>
+          <p data-en="Plenty of free street & lot parking" data-ar="مواقف مجانية وفيرة في الشارع والمواقف">Plenty of free street & lot parking</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MENU SECTION ═══════════ -->
+  <section id="menu" class="menu section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-en="Our Menu" data-ar="قائمتنا">Our Menu</span>
+        <h2 class="section-title" data-en="Discover Our Offerings" data-ar="اكتشف عروضنا">Discover Our Offerings</h2>
+        <p class="section-desc" data-en="From bold espressos to refreshing bubble teas and indulgent desserts" data-ar="من قهوة الإسبريسو القوية إلى بابل تي المنعش والحلويات الفاخرة">From bold espressos to refreshing bubble teas and indulgent desserts</p>
+      </div>
+
+      <!-- Menu Category Tabs -->
+      <div class="menu-tabs reveal-up" id="menuTabs">
+        <button class="menu-tab active" data-category="cold-drinks" data-en="Cold Drinks" data-ar="مشروبات باردة">Cold Drinks</button>
+        <button class="menu-tab" data-category="hot-drinks" data-en="Hot Drinks" data-ar="مشروبات ساخنة">Hot Drinks</button>
+        <button class="menu-tab" data-category="bubble-tea" data-en="Bubble Tea" data-ar="بابل تي">Bubble Tea</button>
+        <button class="menu-tab" data-category="dessert" data-en="Dessert" data-ar="حلويات">Dessert</button>
+        <button class="menu-tab" data-category="snacks" data-en="Snacks" data-ar="وجبات خفيفة">Snacks</button>
+      </div>
+
+      <!-- Menu Items Grid -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ GALLERY SECTION ═══════════ -->
+  <section id="gallery" class="gallery section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-en="Gallery" data-ar="المعرض">Gallery</span>
+        <h2 class="section-title" data-en="Moments at ORYX" data-ar="لحظات في اوريكس">Moments at ORYX</h2>
+        <p class="section-desc" data-en="A glimpse into the ORYX Cafe experience" data-ar="لمحة من تجربة اوريكس كافيه">A glimpse into the ORYX Cafe experience</p>
+      </div>
+
+      <div class="gallery-grid reveal-up">
+        <div class="gallery-item gallery-item-tall">
+          <img src="assets/oryx1.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/oryx2.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/oryx3.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-wide">
+          <img src="assets/oryx4.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/oryx5.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-tall">
+          <img src="assets/oryx6.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/oryx7.jpg" alt="ORYX Cafe" loading="lazy" />
+          <div class="gallery-overlay">
+            <i data-lucide="maximize-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close"><i data-lucide="x"></i></button>
+    <button class="lightbox-prev" aria-label="Previous"><i data-lucide="chevron-left"></i></button>
+    <button class="lightbox-next" aria-label="Next"><i data-lucide="chevron-right"></i></button>
+    <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+  </div>
+
+  <!-- ═══════════ INSTAGRAM CTA ═══════════ -->
+  <section class="insta-cta section">
+    <div class="container">
+      <div class="insta-cta-inner reveal-up">
+        <div class="insta-cta-text">
+          <i data-lucide="instagram"></i>
+          <h2 data-en="Follow Us on Instagram" data-ar="تابعنا على إنستقرام">Follow Us on Instagram</h2>
+          <p data-en="Stay updated with our latest drinks, desserts & offers" data-ar="تابع آخر المشروبات والحلويات والعروض">Stay updated with our latest drinks, desserts & offers</p>
+        </div>
+        <a href="https://www.instagram.com/oryxcafe?igsh=amFzeGR3bmhsZjl0" target="_blank" rel="noopener" class="btn btn-primary">
+          <span data-en="@oryxcafe" data-ar="@oryxcafe">@oryxcafe</span>
+          <i data-lucide="external-link" style="width:16px;height:16px;margin-inline-start:8px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT / FOOTER ═══════════ -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-en="Get in Touch" data-ar="تواصل معنا">Get in Touch</span>
+        <h2 class="section-title" data-en="Visit Us Today" data-ar="زُرنا اليوم">Visit Us Today</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-card">
+            <div class="contact-card-icon"><i data-lucide="map-pin"></i></div>
+            <div>
+              <h4 data-en="Address" data-ar="العنوان">Address</h4>
+              <p data-en="Al Salamah 3, Umm Al Quwain, UAE" data-ar="السلامة ٣، أم القيوين، الإمارات">Al Salamah 3, Umm Al Quwain, UAE</p>
+              <a href="https://maps.app.goo.gl/T2YxUwHYLKziKqhF8" target="_blank" rel="noopener" class="contact-link" data-en="Open in Maps →" data-ar="افتح في الخريطة →">Open in Maps →</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i data-lucide="phone"></i></div>
+            <div>
+              <h4 data-en="Phone" data-ar="الهاتف">Phone</h4>
+              <a href="tel:+971589606010" class="contact-link">+971 58 960 6010</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i data-lucide="mail"></i></div>
+            <div>
+              <h4 data-en="Email" data-ar="البريد الإلكتروني">Email</h4>
+              <a href="mailto:oryxcafe@gmail.com" class="contact-link">oryxcafe@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i data-lucide="clock"></i></div>
+            <div>
+              <h4 data-en="Hours" data-ar="ساعات العمل">Hours</h4>
+              <p data-en="Daily: 7:00 AM – 11:00 PM" data-ar="يومياً: ٧:٠٠ ص – ١١:٠٠ م">Daily: 7:00 AM – 11:00 PM</p>
+              <p class="text-sm" data-en="Ramadan: 6:00 PM – 2:00 AM" data-ar="رمضان: ٦:٠٠ م – ٢:٠٠ ص">Ramadan: 6:00 PM – 2:00 AM</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-card-icon"><i data-lucide="accessibility"></i></div>
+            <div>
+              <h4 data-en="Accessibility" data-ar="إمكانية الوصول">Accessibility</h4>
+              <p data-en="Wheelchair-accessible seating" data-ar="مقاعد مناسبة لذوي الاحتياجات الخاصة">Wheelchair-accessible seating</p>
+            </div>
+          </div>
+
+          <div class="contact-services">
+            <h4 data-en="Service Options" data-ar="خيارات الخدمة">Service Options</h4>
+            <div class="service-tags">
+              <span data-en="Dine-in" data-ar="تناول في المكان">Dine-in</span>
+              <span data-en="Takeaway" data-ar="سفري">Takeaway</span>
+              <span data-en="Delivery" data-ar="توصيل">Delivery</span>
+              <span data-en="Catering" data-ar="تموين">Catering</span>
+              <span data-en="No-contact delivery" data-ar="توصيل بدون تلامس">No-contact delivery</span>
+              <span data-en="Table service" data-ar="خدمة الطاولة">Table service</span>
+            </div>
+          </div>
+
+          <div class="contact-payments">
+            <h4 data-en="Payments Accepted" data-ar="طرق الدفع">Payments Accepted</h4>
+            <div class="service-tags">
+              <span data-en="Credit Cards" data-ar="بطاقات ائتمان">Credit Cards</span>
+              <span data-en="Debit Cards" data-ar="بطاقات خصم">Debit Cards</span>
+              <span data-en="NFC / Mobile" data-ar="NFC / جوال">NFC / Mobile</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-map reveal-right">
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.5!2d55.555!3d25.515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDMwJzU0LjAiTiA1NcKwMzMnMTguMCJF!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <a href="https://maps.app.goo.gl/T2YxUwHYLKziKqhF8" target="_blank" rel="noopener" class="map-overlay-link">
+              <i data-lucide="navigation"></i>
+              <span data-en="Get Directions" data-ar="احصل على الاتجاهات">Get Directions</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/Oryx-cafe-logo.jpg" alt="ORYX Cafe" class="footer-logo" />
+          <p data-en="Value is more expensive than price 👌🏻" data-ar="القيمة أغلى من السعر 👌🏻">Value is more expensive than price 👌🏻</p>
+        </div>
+        <div class="footer-links-col">
+          <h4 data-en="Quick Links" data-ar="روابط سريعة">Quick Links</h4>
+          <a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a>
+          <a href="#about" data-en="About" data-ar="عن الكافيه">About</a>
+          <a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a>
+          <a href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a>
+          <a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a>
+        </div>
+        <div class="footer-links-col">
+          <h4 data-en="Order On" data-ar="اطلب عبر">Order On</h4>
+          <a href="#" target="_blank">Talabat</a>
+          <a href="#" target="_blank">Beanz</a>
+          <a href="#" target="_blank">Noon Food</a>
+          <a href="#" target="_blank">Keeta</a>
+        </div>
+        <div class="footer-links-col">
+          <h4 data-en="Connect" data-ar="تواصل">Connect</h4>
+          <a href="https://www.instagram.com/oryxcafe?igsh=amFzeGR3bmhsZjl0" target="_blank" rel="noopener">Instagram</a>
+          <a href="tel:+971589606010" data-en="Call Us" data-ar="اتصل بنا">Call Us</a>
+          <a href="mailto:oryxcafe@gmail.com">Email</a>
+          <a href="https://maps.app.goo.gl/T2YxUwHYLKziKqhF8" target="_blank" rel="noopener" data-en="Directions" data-ar="الاتجاهات">Directions</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ORYX Cafe | اوريكس كافيه. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></p>
+        <p style="margin-top:6px;"><span data-en="Designed &amp; Developed by" data-ar="تصميم وتطوير بواسطة">Designed &amp; Developed by</span> <a href="https://www.ravencorp.tech/" target="_blank" rel="noopener" style="color:var(--clr-accent);opacity:1;font-weight:600;transition:color .2s;">Raven Corp.Tech</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ BACK TO TOP ═══════════ -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i data-lucide="chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
