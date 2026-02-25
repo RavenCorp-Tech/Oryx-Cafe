@@ -39,6 +39,7 @@
         <li><a href="#about" data-en="About" data-ar="عن الكافيه">About</a></li>
         <li><a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a></li>
         <li><a href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+        <li><a href="#reviews" data-en="Reviews" data-ar="آراء العملاء">Reviews</a></li>
         <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
       </ul>
 
@@ -61,6 +62,7 @@
       <li><a href="#about" data-en="About" data-ar="عن الكافيه">About</a></li>
       <li><a href="#menu" data-en="Menu" data-ar="القائمة">Menu</a></li>
       <li><a href="#gallery" data-en="Gallery" data-ar="المعرض">Gallery</a></li>
+      <li><a href="#reviews" data-en="Reviews" data-ar="آراء العملاء">Reviews</a></li>
       <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
     </ul>
   </div>
@@ -529,6 +531,115 @@
     <button class="lightbox-next" aria-label="Next"><i data-lucide="chevron-right"></i></button>
     <img src="" alt="" class="lightbox-img" id="lightboxImg" />
   </div>
+
+  <!-- ═══════════ REVIEWS SECTION ═══════════ -->
+  <section id="reviews" class="reviews section">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-tag" data-en="Customer Reviews" data-ar="آراء العملاء">Customer Reviews</span>
+        <h2 class="section-title" data-en="What People Say" data-ar="ماذا يقول عملاؤنا">What People Say</h2>
+        <p class="section-desc" data-en="Real reviews from our valued customers on Google Maps" data-ar="تقييمات حقيقية من عملائنا على خرائط جوجل">Real reviews from our valued customers on Google Maps</p>
+      </div>
+
+      <div class="reviews-carousel reveal-up">
+        <button class="review-nav review-nav--prev" id="reviewPrev" aria-label="Previous review"><i data-lucide="chevron-left"></i></button>
+        <button class="review-nav review-nav--next" id="reviewNext" aria-label="Next review"><i data-lucide="chevron-right"></i></button>
+
+        <div class="reviews-track" id="reviewsTrack">
+          <!-- Review 1 -->
+          <div class="review-card active">
+            <div class="review-header">
+              <div class="review-avatar">A</div>
+              <div class="review-meta">
+                <h4 class="review-name">A A</h4>
+                <span class="review-badge" data-en="Local Guide" data-ar="مرشد محلي">Local Guide</span>
+              </div>
+              <div class="review-rating">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-date" data-en="January 2026" data-ar="يناير 2026">January 2026</span>
+              </div>
+            </div>
+            <p class="review-text" data-en="Great coffee and desserts, always keeping up with new trends at very reasonable prices without compromising quality. They clearly prioritize quality over profit. The only downside is that it's mostly drive-through since the indoor space is small, but with all the perks, we really can't complain 😆 Best in UAQ!!" data-ar="قهوة وحلويات رائعة، دائماً يواكبون الاتجاهات الجديدة بأسعار معقولة جداً دون التنازل عن الجودة. من الواضح أنهم يضعون الجودة فوق الربح. السلبية الوحيدة أن المكان أغلبه خدمة سيارات لأن المساحة الداخلية صغيرة، لكن مع كل المميزات، ما نقدر نشتكي 😆 الأفضل في أم القيوين!!">Great coffee and desserts, always keeping up with new trends at very reasonable prices without compromising quality. They clearly prioritize quality over profit. The only downside is that it's mostly drive-through since the indoor space is small, but with all the perks, we really can't complain 😆 Best in UAQ!!</p>
+            <div class="review-source">
+              <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+              <span data-en="Google Maps" data-ar="خرائط جوجل">Google Maps</span>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">A</div>
+              <div class="review-meta">
+                <h4 class="review-name">arzoo shaikh</h4>
+                <span class="review-badge" data-en="Local Guide" data-ar="مرشد محلي">Local Guide</span>
+              </div>
+              <div class="review-rating">
+                <div class="review-stars">★★★★<span class="star-empty">★</span></div>
+                <span class="review-date" data-en="June 2025" data-ar="يونيو 2025">June 2025</span>
+              </div>
+            </div>
+            <p class="review-text" data-en="A small cafe located in Um Al Quain. I had ordered for Castella Ice Cream and Goco Crisp. The cake in the castella ice cream was nice and moist dipped in some chocolate sauce and garnished with a piece of strawberry. Goco Crisp, just like its name was nice n crispy at the outer and moist and chocolaty inside. Prices are very reasonable and the service was very quick. Overall, it was a good experience and definitely i would visit again." data-ar="مقهى صغير في أم القيوين. طلبت آيس كريم كاستيلا وغوكو كريسب. الكيك في آيس كريم كاستيلا كان لذيذ ورطب مغمس بصوص الشوكولاتة ومزين بقطعة فراولة. غوكو كريسب كان مقرمش من الخارج ورطب وشوكولاتي من الداخل. الأسعار معقولة جداً والخدمة سريعة. تجربة جيدة وبالتأكيد سأزور مرة أخرى.">A small cafe located in Um Al Quain. I had ordered for Castella Ice Cream and Goco Crisp. The cake in the castella ice cream was nice and moist dipped in some chocolate sauce and garnished with a piece of strawberry. Goco Crisp, just like its name was nice n crispy at the outer and moist and chocolaty inside. Prices are very reasonable and the service was very quick. Overall, it was a good experience and definitely i would visit again.</p>
+            <div class="review-source">
+              <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+              <span data-en="Google Maps" data-ar="خرائط جوجل">Google Maps</span>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">A</div>
+              <div class="review-meta">
+                <h4 class="review-name">Alia Alhashmi</h4>
+                <span class="review-badge" data-en="Local Guide" data-ar="مرشد محلي">Local Guide</span>
+              </div>
+              <div class="review-rating">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-date" data-en="August 2025" data-ar="أغسطس 2025">August 2025</span>
+              </div>
+            </div>
+            <p class="review-text" data-en="If you're looking for delicious sweets at a reasonable price, this place is definitely worth visiting. I just wish they had a proper menu instead of having to choose from Instagram." data-ar="إذا كنت تبحث عن حلويات لذيذة بسعر معقول، هذا المكان يستحق الزيارة بالتأكيد. أتمنى لو كان لديهم قائمة طعام مناسبة بدلاً من الاختيار من إنستقرام.">If you're looking for delicious sweets at a reasonable price, this place is definitely worth visiting. I just wish they had a proper menu instead of having to choose from Instagram.</p>
+            <div class="review-source">
+              <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+              <span data-en="Google Maps" data-ar="خرائط جوجل">Google Maps</span>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="review-avatar">M</div>
+              <div class="review-meta">
+                <h4 class="review-name">moza alzaabi</h4>
+                <span class="review-badge" data-en="Local Guide" data-ar="مرشد محلي">Local Guide</span>
+              </div>
+              <div class="review-rating">
+                <div class="review-stars">★★★★★</div>
+                <span class="review-date" data-en="January 2026" data-ar="يناير 2026">January 2026</span>
+              </div>
+            </div>
+            <p class="review-text" data-en="Excellent experience with Oryx Coffee — the staff member was friendly and cheerful, and the coffee was really delicious 👌☕" data-ar="تجربة ممتازة مع قهوة أوريكس — الموظف كان ودود ومبتسم، والقهوة كانت لذيذة فعلاً 👌☕">Excellent experience with Oryx Coffee — the staff member was friendly and cheerful, and the coffee was really delicious 👌☕</p>
+            <div class="review-source">
+              <i data-lucide="map-pin" style="width:14px;height:14px"></i>
+              <span data-en="Google Maps" data-ar="خرائط جوجل">Google Maps</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-dots" id="reviewDots"></div>
+      </div>
+
+      <!-- Google Maps link -->
+      <div class="reviews-cta reveal-up">
+        <a href="https://maps.app.goo.gl/T2YxUwHYLKziKqhF8" target="_blank" rel="noopener" class="btn btn-outline">
+          <i data-lucide="star" style="width:16px;height:16px;margin-inline-end:8px"></i>
+          <span data-en="See All Reviews on Google Maps" data-ar="شاهد جميع التقييمات على خرائط جوجل">See All Reviews on Google Maps</span>
+          <i data-lucide="external-link" style="width:14px;height:14px;margin-inline-start:8px"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════ INSTAGRAM CTA ═══════════ -->
   <section class="insta-cta section">

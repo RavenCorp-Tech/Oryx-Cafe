@@ -393,4 +393,134 @@
       { passive: true }
     );
   }
+
+  /* ═══════════ REVIEWS CAROUSEL ═══════════ */
+  const reviewCards = $$("#reviewsTrack .review-card");
+  const reviewDotsWrap = $("#reviewDots");
+  const reviewPrev = $("#reviewPrev");
+  const reviewNext = $("#reviewNext");
+  const reviewTrack = $("#reviewsTrack");
+  let currentReview = 0;
+  let reviewAutoTimer = null;
+  let isReviewAnimating = false;
+  const REVIEW_INTERVAL = 6000;
+
+  function setTrackHeight(idx) {
+    if (!reviewTrack) return;
+    const card = reviewCards[idx];
+    // Temporarily make it visible to measure
+    card.style.visibility = "visible";
+    card.style.position = "relative";
+    card.style.opacity = "0";
+    const h = card.offsetHeight;
+    card.style.visibility = "";
+    card.style.position = "";
+    card.style.opacity = "";
+    reviewTrack.style.height = h + "px";
+  }
+
+  if (reviewCards.length && reviewDotsWrap && reviewTrack) {
+    // Set initial height from the active card
+    setTrackHeight(0);
+
+    // Build dot indicators
+    reviewCards.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "review-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("aria-label", "Go to review " + (i + 1));
+      dot.addEventListener("click", () => goToReview(i));
+      reviewDotsWrap.appendChild(dot);
+    });
+
+    function goToReview(idx) {
+      if (idx === currentReview || isReviewAnimating) return;
+      isReviewAnimating = true;
+      const dir = idx > currentReview ? 1 : -1;
+      const prevCard = reviewCards[currentReview];
+      const nextCard = reviewCards[idx];
+
+      // Set track height to target card height
+      setTrackHeight(idx);
+
+      // Stage the incoming card off-screen (no transition yet)
+      nextCard.style.transition = "none";
+      nextCard.style.transform = dir > 0
+        ? "translateX(60px) scale(.97)"
+        : "translateX(-60px) scale(.97)";
+      nextCard.style.opacity = "0";
+      nextCard.classList.remove("exit-left", "exit-right");
+      // Force reflow
+      void nextCard.offsetWidth;
+
+      // Re-enable transition and activate
+      nextCard.style.transition = "";
+      nextCard.style.transform = "";
+      nextCard.style.opacity = "";
+      nextCard.classList.add("active");
+
+      // Exit current card
+      prevCard.classList.remove("active");
+      prevCard.classList.add(dir > 0 ? "exit-left" : "exit-right");
+
+      // Clean up after transition
+      setTimeout(() => {
+        prevCard.classList.remove("exit-left", "exit-right");
+        isReviewAnimating = false;
+      }, 550);
+
+      // Update dots
+      $$("#reviewDots .review-dot").forEach((d, i) =>
+        d.classList.toggle("active", i === idx)
+      );
+
+      currentReview = idx;
+      resetAutoPlay();
+    }
+
+    function nextReview() {
+      goToReview((currentReview + 1) % reviewCards.length);
+    }
+    function prevReview() {
+      goToReview((currentReview - 1 + reviewCards.length) % reviewCards.length);
+    }
+
+    reviewNext.addEventListener("click", nextReview);
+    reviewPrev.addEventListener("click", prevReview);
+
+    // Auto-play
+    function startAutoPlay() {
+      reviewAutoTimer = setInterval(nextReview, REVIEW_INTERVAL);
+    }
+    function resetAutoPlay() {
+      clearInterval(reviewAutoTimer);
+      startAutoPlay();
+    }
+    startAutoPlay();
+
+    // Pause on hover
+    const carousel = $(".reviews-carousel");
+    if (carousel) {
+      carousel.addEventListener("mouseenter", () => clearInterval(reviewAutoTimer));
+      carousel.addEventListener("mouseleave", startAutoPlay);
+    }
+
+    // Swipe support for touch
+    let touchStartX = 0;
+    if (reviewTrack) {
+      reviewTrack.addEventListener("touchstart", (e) => {
+        touchStartX = e.touches[0].clientX;
+        clearInterval(reviewAutoTimer);
+      }, { passive: true });
+      reviewTrack.addEventListener("touchend", (e) => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          diff > 0 ? nextReview() : prevReview();
+        }
+        startAutoPlay();
+      }, { passive: true });
+    }
+
+    // Recalculate height on resize
+    window.addEventListener("resize", () => setTrackHeight(currentReview), { passive: true });
+  }
 })();
