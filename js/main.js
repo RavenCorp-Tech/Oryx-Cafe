@@ -405,23 +405,26 @@
   let isReviewAnimating = false;
   const REVIEW_INTERVAL = 6000;
 
-  function setTrackHeight(idx) {
+  function setTrackHeight() {
     if (!reviewTrack) return;
-    const card = reviewCards[idx];
-    // Temporarily make it visible to measure
-    card.style.visibility = "visible";
-    card.style.position = "relative";
-    card.style.opacity = "0";
-    const h = card.offsetHeight;
-    card.style.visibility = "";
-    card.style.position = "";
-    card.style.opacity = "";
-    reviewTrack.style.height = h + "px";
+    // Measure ALL cards and use the tallest so height never shifts
+    let maxH = 0;
+    reviewCards.forEach((card) => {
+      card.style.visibility = "visible";
+      card.style.position = "relative";
+      card.style.opacity = "0";
+      const h = card.offsetHeight;
+      card.style.visibility = "";
+      card.style.position = "";
+      card.style.opacity = "";
+      if (h > maxH) maxH = h;
+    });
+    reviewTrack.style.height = maxH + "px";
   }
 
   if (reviewCards.length && reviewDotsWrap && reviewTrack) {
-    // Set initial height from the active card
-    setTrackHeight(0);
+    // Set initial height from the tallest card
+    setTrackHeight();
 
     // Build dot indicators
     reviewCards.forEach((_, i) => {
@@ -439,8 +442,8 @@
       const prevCard = reviewCards[currentReview];
       const nextCard = reviewCards[idx];
 
-      // Set track height to target card height
-      setTrackHeight(idx);
+      // Ensure track height covers tallest card
+      setTrackHeight();
 
       // Stage the incoming card off-screen (no transition yet)
       nextCard.style.transition = "none";
@@ -521,6 +524,6 @@
     }
 
     // Recalculate height on resize
-    window.addEventListener("resize", () => setTrackHeight(currentReview), { passive: true });
+    window.addEventListener("resize", () => setTrackHeight(), { passive: true });
   }
 })();
