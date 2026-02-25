@@ -191,10 +191,94 @@
   // Initial render
   renderMenu("cold-drinks");
 
+  /* ═══════════ GALLERY HORIZONTAL SCROLL ═══════════ */
+  const galleryScroll = $("#galleryScroll");
+  const galleryPrev = $("#galleryPrev");
+  const galleryNext = $("#galleryNext");
+  const galleryCounter = $("#galleryCounter");
+  const galleryProgressFill = $("#galleryProgressFill");
+  const galleryItems = $$(".gallery-item img");
+  const totalItems = galleryItems.length;
+
+  // Scroll by a set of items on button click
+  function galleryScrollBy(dir) {
+    if (!galleryScroll) return;
+    const itemW = galleryScroll.querySelector(".gallery-item")?.offsetWidth || 320;
+    const gap = 20;
+    const scrollAmount = (itemW + gap) * 3 * dir;
+    galleryScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+
+  if (galleryPrev) galleryPrev.addEventListener("click", () => galleryScrollBy(-1));
+  if (galleryNext) galleryNext.addEventListener("click", () => galleryScrollBy(1));
+
+  // Update counter, progress bar, and nav button states on scroll
+  function updateGalleryUI() {
+    if (!galleryScroll) return;
+    const { scrollLeft, scrollWidth, clientWidth } = galleryScroll;
+    const maxScroll = scrollWidth - clientWidth;
+    const progress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
+
+    // Figure out which item is roughly in view
+    const itemW = galleryScroll.querySelector(".gallery-item")?.offsetWidth || 320;
+    const gap = 20;
+    const currentIndex = Math.round(scrollLeft / (itemW + gap)) + 1;
+    const clampedIndex = Math.min(Math.max(currentIndex, 1), totalItems);
+
+    if (galleryCounter) galleryCounter.textContent = `${clampedIndex} / ${totalItems}`;
+    if (galleryProgressFill) galleryProgressFill.style.width = `${progress * 100}%`;
+
+    // Disable buttons at edges
+    if (galleryPrev) galleryPrev.classList.toggle("disabled", scrollLeft <= 2);
+    if (galleryNext) galleryNext.classList.toggle("disabled", scrollLeft >= maxScroll - 2);
+  }
+
+  if (galleryScroll) {
+    galleryScroll.addEventListener("scroll", updateGalleryUI, { passive: true });
+    updateGalleryUI();
+  }
+
+  // Drag-to-scroll
+  let isDragging = false, hasDragged = false, dragStartX = 0, dragScrollLeft = 0;
+  const DRAG_THRESHOLD = 5; // px – ignore tiny movements so clicks still work
+
+  function onDragStart(e) {
+    if (!galleryScroll) return;
+    isDragging = true;
+    hasDragged = false;
+    dragStartX = (e.touches ? e.touches[0].pageX : e.pageX) - galleryScroll.offsetLeft;
+    dragScrollLeft = galleryScroll.scrollLeft;
+  }
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    if (galleryScroll) galleryScroll.classList.remove("is-dragging");
+  }
+  function onDragMove(e) {
+    if (!isDragging || !galleryScroll) return;
+    const x = (e.touches ? e.touches[0].pageX : e.pageX) - galleryScroll.offsetLeft;
+    const distance = Math.abs(x - dragStartX);
+    if (!hasDragged && distance < DRAG_THRESHOLD) return; // still within click tolerance
+    hasDragged = true;
+    galleryScroll.classList.add("is-dragging");
+    e.preventDefault();
+    const walk = (x - dragStartX) * 1.5;
+    galleryScroll.scrollLeft = dragScrollLeft - walk;
+  }
+
+  if (galleryScroll) {
+    galleryScroll.addEventListener("mousedown", onDragStart);
+    galleryScroll.addEventListener("mouseleave", onDragEnd);
+    galleryScroll.addEventListener("mouseup", onDragEnd);
+    galleryScroll.addEventListener("mousemove", onDragMove);
+    galleryScroll.addEventListener("touchstart", onDragStart, { passive: true });
+    galleryScroll.addEventListener("touchend", onDragEnd);
+    galleryScroll.addEventListener("touchmove", onDragMove, { passive: false });
+  }
+
   /* ═══════════ GALLERY LIGHTBOX ═══════════ */
   const lightbox = $("#lightbox");
   const lightboxImg = $("#lightboxImg");
-  const galleryItems = $$(".gallery-item img");
   let currentLightboxIndex = 0;
 
   function openLightbox(index) {
@@ -211,7 +295,11 @@
   }
 
   galleryItems.forEach((img, i) => {
-    img.closest(".gallery-item").addEventListener("click", () => openLightbox(i));
+    img.closest(".gallery-item").addEventListener("click", (e) => {
+      // Don't open lightbox if user was dragging
+      if (hasDragged) return;
+      openLightbox(i);
+    });
   });
 
   if (lightbox) {
